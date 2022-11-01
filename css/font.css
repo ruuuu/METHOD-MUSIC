@@ -1,0 +1,33 @@
+@font-face {
+      font-family: 'SF UI Display';
+      font-weight: 400;
+      src: url('../fonts/SFUIDisplay-Regular.woff2') format('woff2'),
+            url('../fonts/SFUIDisplay-Regular.woff') format('woff');
+      /* woff2 новый формат шрита, он меньше весит. Если браузер не поддердивает новый фрмат то скачает woff */
+}
+
+
+@font-face {
+      font-family: 'SF UI Display';
+      font-weight: 300;
+      src: url('../fonts/SFUIDisplay-Light.woff2') format('woff2'),
+            url('../fonts/SFUIDisplay-Light.woff') format('woff');
+      /* woff2 новый формат шрита, он меньше весит. Если браузер не поддердивает новый фрмат то скачает woff */
+}
+
+@font-face {
+      font-family: 'SF UI Display';
+      font-weight: 600;
+      src: url('../fonts/SFUIDisplay-Semibold.woff2') format('woff2'),
+            url('../fonts/SFUIDisplay-Semibold.woff') format('woff');
+      /* woff2 новый формат шрита, он меньше весит. Если браузер не поддердивает новый фрмат то скачает woff */
+}
+
+
+@font-face {
+      font-family: 'SF UI Display';
+      font-weight: 700;
+      src: url('../fonts/SFUIDisplay-Bold.woff2') format('woff2'),
+            url('../fonts/SFUIDisplay-Bold.woff') format('woff');
+      /* woff2 новый формат шрита, он меньше весит. Если браузер не поддердивает новый фрмат то скачает woff */
+}

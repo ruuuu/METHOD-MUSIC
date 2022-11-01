@@ -1,0 +1,4 @@
+/* подключаем этот файл первым!*/
+@import 'normalize.css';
+@import 'font.css';
+@import 'default.css';

@@ -1,0 +1,50 @@
+.header {
+      padding-top: 24px;
+      padding-bottom: 24px;
+}
+
+
+.header__container {
+      /* 1240px = 1180(ширина контента) + 30(paddilg-right)+30(paddilg-left): */
+      max-width: 1240px;
+
+      /* когда контенейр будет сужаться, чтобы паддинги  не исчзезали, добавляем  им по 30px */
+      padding: 0 30px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+}
+
+
+.header__logo {
+      display: block;
+      margin-right: 94px;
+}
+
+
+.header__search {
+      /* флекс элемент,  если удет место то элемент растянется */
+      flex-grow: 1;
+      max-width: 692px;
+
+}
+
+
+
+
+
+.header__favorite-btn {
+      /* флекс элемент */
+      color: #FFFFFF;
+      /* чтлы цвет менялся плавно: */
+      transition: color 0.2s ease-in-out;
+      /* у каждлой оконки есть нижний отсуп по умолчарию, чтобы егобурать пишем так: */
+      line-height: 0;
+      margin-left: auto;
+
+}
+
+
+.header__favorite-btn:hover {
+      color: tomato;
+}

@@ -2,3 +2,8 @@
 @import 'normalize.css';
 @import 'font.css';
 @import 'default.css';
+@import 'header.css';
+@import 'search.css';
+@import 'catalog.css';
+@import 'track.css';
+@import 'player.css';

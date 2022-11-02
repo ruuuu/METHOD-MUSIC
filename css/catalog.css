@@ -1,0 +1,32 @@
+.catalog {}
+
+.catalog__container {
+      /* 1236 = 1196 + 20*2(паддинги): */
+      max-width: 1236px;
+
+      display: grid;
+      /* auto-fill то есть число клнк на разных разрешениях будет  разно, но размер колонки 196: */
+      grid-template-columns: repeat(auto-fill, 196px);
+      justify-content: center;
+      margin: 0 auto;
+      gap: 4px;
+      padding: 0 20px;
+
+}
+
+.catalog__item {}
+
+
+.catalog__btn-add {
+      /* грид элемент */
+      color: #fff;
+      /* последняя колонка */
+      grid-column: -1/-2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      font-weight: 600;
+      line-height: 19px;
+
+}

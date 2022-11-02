@@ -1,5 +1,84 @@
 /* базовые стили здесь будут: */
 
+/* box-sizing: content-box изменряет шиирину и высоту контентной части& То есть border и padding не входит в этот рамзер*/
+
+html {
+      box-sizing: border-box;
+      /* в ширину/высоту вхожят контент, паддинг и border */
+}
+
+*,
+*::after,
+*::before {
+      box-sizing: inherit;
+      /* то есть такой де ка ки у родителя */
+
+}
+
+
 body {
-      font-family: 'SF UI Display';
+      /* будут мобилки */
+      min-width: 320px;
+      padding-bottom: 172px;
+
+      /* vh- вьюпорт то етсь весь экран. Это нужно чтобы  body растягивался на всю высоту экарна*/
+      min-height: 100vh;
+
+      /* если эшрифт SF UI Displayне скачается или бразуре не смог его обработать, то скачается семейтсво  sans-serif(без засечек) это звпасной шрифт */
+      font-family: 'SF UI Display', sans-serif;
+      font-size: 16px;
+      /* 120% , проеносичтается от текущего рамзера шрифта */
+      line-height: 1.2;
+
+      background-image: url('../img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      /* при скролле картинка не будет  cкроллитьcz, только контент буде скролиться: */
+      background-attachment: fixed;
+}
+
+
+img,
+svg {
+      /* чтоб картинки не вываливались из своих блоков, в котрых они находчтся:  */
+      max-width: 100%;
+      max-height: 100%;
+      /* чтобы высотf автоматически меянлась от ширины: */
+      height: auto;
+}
+
+
+button {
+      padding: 0;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+}
+
+
+a {
+      text-decoration: none;
+      /* цвет аткой же что и  у  тсновного текста */
+      color: inherit;
+}
+
+
+ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+}
+
+
+h1,
+h2,
+h3,
+p {
+      margin: 0;
+}
+
+
+.visually-hidden {
+      position: fixed;
+      transform: scale(0);
 }

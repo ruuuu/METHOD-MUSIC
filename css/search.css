@@ -1,0 +1,42 @@
+.search {
+      /* отнсиельно этого элемента будем позиционаровать иконку поиcка */
+      position: relative;
+      max-width: 692px;
+      height: 36px;
+
+}
+
+
+.search__input {
+      width: 100%;
+      height: 100%;
+      padding-left: 16px;
+      /*метсо для иоконки поиска:*/
+      padding-right: 40px;
+      border-radius: 20px;
+      border: 0;
+      outline: none;
+      font-weight: 300;
+      font-size: 14px;
+}
+
+
+.search__input::-webkit-search-cancel-button {
+      /* убираем крестик котрый появится вполе поиска после ввода текста */
+      display: none;
+}
+
+.search__btn {
+      /* кнпока поиска */
+      position: absolute;
+      /* центруется по горизонтали: */
+      top: 50%;
+      /* % от самого элемента: */
+      transform: translateY(-50%);
+      right: 16px;
+      margin-right: auto;
+      /* у каждлой оконки есть нижний отсуп по умолчарию, чтобы егобурать пишем так: */
+      line-height: 0;
+
+
+}

@@ -1,0 +1,142 @@
+.track {
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 20px;
+}
+
+
+.track--active {
+      border-color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.5);
+      /* аниммируем  свойсво background-color: */
+      transition: background-color 0.3s ease-in-out;
+
+}
+
+
+.track--active:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.track__img-wrap {
+      /* чтобы кнпоку Пауза можно было позицинирват относительно этого элемента: */
+      position: relative;
+      border-radius: 12px;
+      /* чтобы у картинки упбрать остпуп котрый ставится по умолчанию */
+      line-height: 0;
+}
+
+
+.track__img-wrap::after {
+      /* псевдоэлемент,   кнпока Плей */
+      /*  если нне указать то отображаться не будет: */
+      content: '';
+      display: flex;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* % от самого элемента по X и по Y: */
+      transform: translate(-50%, -50%) rotateY(90deg);
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      background-image: url('../img/play.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      /* скроем иконку, она повится когда элемент активен: opacity это прозрачность */
+      opacity: 0;
+      /* аниммируем два свойсва transform,  и opacity: */
+      transition-property: transform, opacity;
+      /* время анимации: */
+      transition-duration: 0.2s;
+}
+
+
+.track:hover .track__img-wrap::after {
+      /* иконка play отобразится */
+      opacity: 1;
+      transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+
+.track:focus .track__img-wrap::after {
+      /* иконка play отобразится */
+      opacity: 1;
+      transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+
+.track:active .track__img-wrap::after {
+      /* иконка play отобразится */
+      opacity: 1;
+      /* при нажати на кнпоку плей, она scale(1.3) увеличивает иконку: */
+      transform: translate(-50%, -50%) rotateY(0deg) scale(1.3);
+
+}
+
+
+
+.track--active .track__img-wrap::after {
+      background-image: url('../img/pause.svg');
+      transform: translate(-50%, -50%) rotateY(0deg);
+      opacity: 1;
+      /* аниммируем  свойсво background-color: */
+      transition-property: background-color;
+}
+
+
+.track--active:hover .track__img-wrap::after {
+      background-color: #fff;
+
+}
+
+
+.track__post {
+      /* img */
+      border-radius: 12px 12px 0px 0px;
+      /* все  что выпадет у картинки из лока, это скрываем: */
+      overflow: hidden;
+
+}
+
+
+.track__info {
+      flex-grow: 1;
+      width: 100%;
+      padding: 8px 14px;
+
+      text-align: left;
+      background-color: #FFFFFF;
+      border-radius: 0px 0px 12px 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 120%;
+
+}
+
+.track__title {
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 120%;
+}
+
+.track__artist {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 120%;
+}
+
+.track-info {}
+
+.track-info__title {}
+
+
+.track-info__artist {}

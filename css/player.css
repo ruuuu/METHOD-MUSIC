@@ -1,0 +1,135 @@
+.player {
+      /* при скролле станицы, плеер будет на месте: */
+      position: fixed;
+      /* чтобы плеер растягивалася на всю страницунадо  left:0  right:0 */
+      left: 0;
+      right: 0;
+      /* чтоыб скрыть этот элемент: */
+      bottom: -100%;
+      max-width: 1228px;
+      padding: 24px;
+      margin: 0 auto;
+      /* когда плеер не актвный(нет класса .player--active), то он юудет уезжать вниз, чтобы картчоки не перекрывать: */
+      transition: bottom 0.5s ease;
+
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+
+}
+
+
+.player--active {
+      bottom: 26px;
+}
+
+
+
+
+.player__container {
+      display: grid;
+      /* третий грид элемен занимает три столбца: */
+      grid-template-columns: 1fr 1fr 3fr 1fr;
+      align-items: center;
+      column-gap: 20px;
+
+}
+
+.player__track-info {}
+
+.track-info {}
+
+.track-info__title {}
+
+.track-info__artist {}
+
+
+.player__controller {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+}
+
+
+.player__icon {
+      display: block;
+      /* рамзеры иконок: */
+      width: 24px;
+      height: 24px;
+
+
+      background-position: center;
+      background-repeat: no-repeat;
+
+}
+
+
+.player__icon--stop {
+      background-image: url('../img/stop.svg');
+}
+
+
+.player__icon--prev {
+      background-image: url('../img/prev.svg');
+}
+
+
+.player__icon--pause {
+      background-image: url('../img/pause.svg');
+}
+
+
+.player__icon--play {
+      background-image: url('../img/play.svg');
+}
+
+
+.player__icon--right {
+      background-image: url('../img/next.svg');
+}
+
+
+.player__icon--like {
+      background-image: url('../img/likePlayer.svg');
+}
+
+
+.player__progress-wrap {}
+
+
+
+.player__progress {}
+
+
+
+.player__progress-input {}
+
+
+
+.player__time {}
+
+
+
+.player__time-passed {}
+
+
+
+.player__time-total {}
+
+
+
+.player__volume-wrap {}
+
+
+
+.player__volume {}
+
+
+
+
+
+.player__volume-input {}
+
+
+
+.player__icon--mute {}

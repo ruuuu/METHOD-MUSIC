@@ -16,6 +16,8 @@
       <meta name="theme-color" content="#dff43e">
 
       <link rel="stylesheet" href="css/index.css">
+      <script src="js/index.js" defer></script>
+      <!--там где будут модули, испльуем вметсо defer, type="module"-->
       <title>Music</title>
 </head>
 
@@ -56,7 +58,9 @@
             <h2 class="visually-hidden">Каталог</h2>
 
             <div class="catalog__container">
-                  <button class="catalog__item track">
+                  <!--  класс .track--active будет удлятьь/добавлять в js-->
+                  <!-- добавили дата-атрибут кнпоке: -->
+                  <a class="catalog__item track" data-track="audio/The Weeknd - Save Your Tears.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec1.jpg" alt="Save your tears The weeknd" width="180"
@@ -67,9 +71,9 @@
                               <p class="track__title">Save your tears</p>
                               <p class="track__artist">The weeknd</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track track--active">
+                  <a class="catalog__item track track--active" data-track="audio/Imagine Dragons - Follow You.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec2.jpg" alt="Save your tears The weeknd" width="180"
@@ -77,12 +81,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Follow You</p>
+                              <p class="track__artist">Imagine Dragons</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Tove Lo - How Long.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec3.jpg" alt="Save your tears The weeknd" width="180"
@@ -90,12 +94,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Tove Lo</p>
+                              <p class="track__artist">How Long</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Tom Odell - Another Love.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec4.jpg" alt="Save your tears The weeknd" width="180"
@@ -103,12 +107,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Another Love</p>
+                              <p class="track__artist">Tom Odell</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Lana Del Rey - Born To Die.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec5.jpg" alt="Save your tears The weeknd" width="180"
@@ -116,12 +120,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Born to Die</p>
+                              <p class="track__artist">Lana Del Rey</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Adele - Hello.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec6.jpg" alt="Save your tears The weeknd" width="180"
@@ -129,12 +133,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Hello</p>
+                              <p class="track__artist">Adele</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Tom Odell - Can't Pretend.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec7.jpg" alt="Save your tears The weeknd" width="180"
@@ -142,12 +146,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Can't Pretend</p>
+                              <p class="track__artist">Tom Odell</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Lana Del Rey - Young And Beautiful.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec8.jpg" alt="Save your tears The weeknd" width="180"
@@ -155,12 +159,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Young and Beautiful</p>
+                              <p class="track__artist">Lana Del Rey</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Adele - Someone Like You.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec9.jpg" alt="Save your tears The weeknd" width="180"
@@ -168,12 +172,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Someone Like You</p>
+                              <p class="track__artist">Adele</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Imagine Dragons - Natural.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec10.jpg" alt="Save your tears The weeknd" width="180"
@@ -181,12 +185,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">Natural</p>
+                              <p class="track__artist">Imagine Dragons</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Drake - Laugh Now Cry Later.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec11.jpg" alt="Save your tears The weeknd" width="180"
@@ -194,12 +198,12 @@
                         </div>
 
                         <div class="track__info">
-                              <p class="track__title">Save your tears</p>
-                              <p class="track__artist">The weeknd</p>
+                              <p class="track__title">laugh now cry later</p>
+                              <p class="track__artist">Drake</p>
                         </div>
-                  </button>
+                  </a>
 
-                  <button class="catalog__item track">
+                  <a class="catalog__item track" data-track="audio/Madonna - Frozen.mp3">
                         <!-- если внтури картнки что то появляется, это надо добавить в обертку. Если б на картнке ничегоне было бы, встаивли просто img-->
                         <div class="track__img-wrap">
                               <img class="track__post" src="img/rec12.jpg" alt="Save your tears The weeknd" width="180"
@@ -207,10 +211,10 @@
                         </div>
 
                         <div class="track__info track-info">
-                              <p class="track-info__title">Save your tears</p>
-                              <p class="track-info__artist">The weeknd</p>
+                              <p class="track-info__title">Frozen</p>
+                              <p class="track__artist">Madonna</p>
                         </div>
-                  </button>
+                  </a>
 
                   <button class="catalog__btn-add">
                         <span>Увидеть все</span>
@@ -223,7 +227,7 @@
       </section>
 
 
-      <section class="player player--active">
+      <section class="player">
             <!-- плеер удем скрытьва чреез JS, добавляее/удаляя класс player--active -->
             <h2 class="visually-hidden">player</h2>
 
@@ -235,11 +239,11 @@
 
 
                   <div class="player__controller">
-                        <button class="player__icon player__icon--stop"></button>
-                        <button class="player__icon player__icon--prev"></button>
-                        <button class="player__icon player__icon--pause"></button>
-                        <button class="player__icon player__icon--right"></button>
-                        <button class="player__icon player__icon--like"></button>
+                        <button class="player__icon player__icon--stop player__controller-stop"></button>
+                        <button class="player__icon player__icon--prev player__controller-prev"></button>
+                        <button class="player__icon player__icon--pause player__controller-pause"></button>
+                        <button class="player__icon player__icon--right player__controller-right"></button>
+                        <button class="player__icon player__icon--like player__controller-like"></button>
                   </div>
 
 

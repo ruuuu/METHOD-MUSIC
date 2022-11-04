@@ -13,12 +13,14 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 25px;
 }
 
 
 .header__logo {
       display: block;
-      margin-right: 94px;
+      margin-right: 69px;
 }
 
 
@@ -47,4 +49,59 @@
 
 .header__favorite-btn:hover {
       color: tomato;
+}
+
+
+@media(max-width: 1024px) {
+
+      .header__container {
+            padding: 0 22px;
+      }
+
+
+      .header__search {
+            margin-right: 90px;
+      }
+
+}
+
+
+@media(max-width: 768px) {
+
+      .header__container {
+            max-width: 610px;
+            /* 610px = 580(ширина контента) + 15(paddilg-right)+15(paddilg-left): */
+            padding: 0 15px;
+      }
+
+
+      .header__logo {
+            margin-right: 12px;
+      }
+
+      .header__search {
+            margin-right: 0;
+      }
+
+}
+
+
+@media(max-width: 560px) {
+
+      .header {
+            padding-top: 20px;
+      }
+
+      .header__container {
+            flex-wrap: wrap;
+            gap: 17px;
+      }
+
+      .header__search {
+            /* чтоыб поле посика  растянлулось: */
+            flex-basis: 100%;
+            order: 3;
+      }
+
+
 }

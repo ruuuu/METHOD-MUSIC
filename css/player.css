@@ -80,6 +80,7 @@
 
 
 .player__icon--play {
+      /* в  JS будем этот класс добавлять */
       background-image: url('../img/play.svg');
 }
 

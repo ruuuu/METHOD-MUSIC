@@ -134,9 +134,27 @@
       line-height: 120%;
 }
 
-.track-info {}
-
-.track-info__title {}
 
 
-.track-info__artist {}
+
+@media(max-width: 560px) {
+
+      .track {
+            padding: 3px;
+            border-width: 1px;
+            border-radius: 14px;
+      }
+
+      .track-info {
+            padding: 8px
+      }
+
+      .track__title {
+            margin-bottom: 4px;
+            font-size: 14px;
+      }
+
+      .track__artist {
+            font-size: 12px;
+      }
+}

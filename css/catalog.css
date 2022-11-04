@@ -5,13 +5,12 @@
       max-width: 1236px;
 
       display: grid;
-      /* auto-fill то есть число клнк на разных разрешениях будет  разно, но размер колонки 196: */
+      /* auto-fill то есть число колонок на разных разрешениях будет  разно, но размер колонки 196: */
       grid-template-columns: repeat(auto-fill, 196px);
       justify-content: center;
       margin: 0 auto;
       gap: 4px;
       padding: 0 20px;
-
 }
 
 .catalog__item {}
@@ -28,5 +27,34 @@
 
       font-weight: 600;
       line-height: 19px;
+}
+
+
+@media (max-width: 560px) {
+
+      .catalog__container {
+            padding: 0 11px;
+            /* auto-fill то есть число колнок на разных разрешениях будет  разно, но размер колонки 148: */
+            grid-template-columns: repeat(auto-fill, 148px);
+      }
+
+
+      .track__title {
+            font-size: 14px;
+      }
+
+      .track__artist {
+            font-weight: 300;
+            font-size: 12px;
+      }
+
+      .catalog__btn-add {
+            /* грид элемент */
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-size: 14px;
+            gap: 8px;
+      }
+
 
 }

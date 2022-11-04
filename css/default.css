@@ -82,3 +82,21 @@ p {
       position: fixed;
       transform: scale(0);
 }
+
+
+
+
+@media(max-width: 768px) {
+      body {
+            /* чтобы плеер был ниже картоек: */
+            padding-bottom: 217px;
+      }
+
+}
+
+@media(max-width: 560px) {
+      body {
+            /* чтобы плеер был ниже картоек: */
+            padding-bottom: 187px;
+      }
+}

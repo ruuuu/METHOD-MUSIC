@@ -90,22 +90,73 @@ const dataMusic = [
 
 const audio = new Audio();                      // для плучения аудио
 
-const pauseBtn = document.querySelector('.player__controller-pause');
-const tracksCard = document.getElementsByClassName('track');    // массив кнопок,  так будем подучать кнопки динамически, тое сть  после поиска если будет 2 карточрки, то в переменной будет 2 картчоки.  они мняются без перезагрузик станицы. а если через querySelectorAll('.track') придется поврный поиск произодить
-const stopBtn = document.querySelector('.player__controller-stop');
+const pauseBtn = document.querySelector('.player__controller-pause');         // кнопка паузы на плеере
+const tracksCard = document.getElementsByClassName('track');                  // массив кнопок,  так будем подучать кнопки динамически, тое сть  после поиска если будет 2 карточрки, то в переменной будет 2 картчоки.  они мняются без перезагрузик станицы. а если через querySelectorAll('.track') придется поврный поиск произодить
+const stopBtn = document.querySelector('.player__controller-stop');           // кнпока в плеере
 const player = document.querySelector('.player');
 const catalogContaier = document.querySelector('.catalog__container');                    // контенйер дял карточек
+const prevBtn = document.querySelector('.player__controller-prev');
+const nextBtn = document.querySelector('.player__controller-next');
+const liketBtn = document.querySelector('.player__controller-like');
+const mutetBtn = document.querySelector('player__controller-mute');
 
 
 
 
+
+//  создание нопки "Увидеть все":
+const catalogAddBtn = document.createElement('button');
+catalogAddBtn.classList.add('catalog__btn-add');
+
+catalogAddBtn.innerHTML = `
+            <span>Увидеть все</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                         <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z" />
+            </svg>
+`;
+
+
+
+
+
+// меняем  на карточке иконку пазуы на иконку плея:
+const pausePlayer = () => {
+      // console.log(audio.dir)
+      const trackActive = document.querySelector('.track--active');
+      if (audio.paused) {                        // если аудио на паузе, у объекта audio есть свойство paused
+            audio.play();
+            pauseBtn.classList.remove('player__icon--play');
+            trackActive.classList.remove('track--pause');               // удаляем иконку плея
+      }
+      else {
+            audio.pause();                        //   у audio етсь метод pause()
+            pauseBtn.classList.add('player__icon--play');
+            trackActive.classList.add('track--pause');
+      }
+}
+
+
+
+// когда жмем на  картчоку, играет аудио:
 const playMusic = (evt) => {        // event(это объект события) возникате во время наступления любого события
       // console.dir(evt.currentTarget);                          // выведет элемент на котрый нажали ввиже объекта
       evt.preventDefault();                                       // убираем  повдеение ссылки по умлчаию(перагрука станциы)
-      const trackActive = evt.currentTarget;
+      const trackActive = evt.currentTarget;                      // вернет тто элемен на котрый нажали
+      if (trackActive.classList.contains('track--active')) {      // если трек активный
+            pausePlayer();                                        // меняем  нак артоке иконку пазуы на иконку плея
+            return;                                               // выход из функции, дальнейшие дейсвтия не будут выполянться
+      }
+
       const id = trackActive.dataset.idTrack;
 
-      audio.src = trackActive.dataset.track;                      // elem.dataset.track  берем значение дата-атрибута data-track
+      const track = dataMusic.find((item, index) => {
+
+            item.id === id
+      });
+      console.log('track ', track);
+
+      audio.src = track.mp3;                      // elem.dataset.track  берем значение дата-атрибута data-track
       audio.play();                                               // прогиграть трек, у адудио еть метод play()
       player.classList.add('player--active');                        // плеер появится
       pauseBtn.classList.remove('player__icon--play');            // бдет иконка треугольничка(плей)
@@ -114,11 +165,9 @@ const playMusic = (evt) => {        // event(это объект события)
             tracksCard[i].classList.remove('track--active');
       }
       trackActive.classList.add('track--active');
-      // .track__img-wrap::after
-      // if (trackActive.className === ) {
-
-      // }
 }
+
+
 
 
 const addHanderTrack = () => {
@@ -130,28 +179,17 @@ const addHanderTrack = () => {
 
 
 
-pauseBtn.addEventListener('click', () => {
-      // console.log(audio.dir)
-      if (audio.paused) {                        // если аудио на паузе, у объекта audio есть свойство paused
-            audio.play();
-            pauseBtn.classList.remove('player__icon--play');
-      }
-      else {
-            audio.pause();                        //   у audio етсь метод pause()
-            pauseBtn.classList.add('player__icon--play');
-      }
-
-});
+pauseBtn.addEventListener('click', pausePlayer);  // обрботчик кнопки Пауза в плеереи на карточке
 
 
 
-
+// обрабокт кнопки Пауза в плеере:
 stopBtn.addEventListener('click', () => {
       //     player дожлен уехать и удалить из src трек
       player.classList.remove('player--active');
       audio.pause();
-
 });
+
 
 
 
@@ -195,8 +233,36 @@ const renderCatalog = (dataList) => {                  //  dataList это [ {id
 
 
 
-const init = () => {                      // фккнция инициализатор, отсюда все начинается
-      renderCatalog(dataMusic);                    // отрисвока верстки  всех карточек , dataMusic = [{audio1}, {audio2}, {}, {}]
+// чтобы скрывались пустые ряды при уменьшении экрана:
+const checkCount = (i = 1) => {
+
+      if (catalogContaier.clientHeight > tracksCard[0].clientHeight * 3) {          // если экартчоек ольше чем 2 ряда
+            tracksCard[tracksCard.length - i].style.display = 'none';
+            checkCount(i + 1);                  //    рекурсия
+      }
+      else if (i !== 1) {          // если не все картчоки отображены
+            catalogContaier.append(catalogAddBtn);
+      }
+
+};
+
+
+
+const init = () => {                                  // фккнция инициализатор, отсюда все начинается
+      renderCatalog(dataMusic);                       // отрисвока верстки  всех карточек , dataMusic = [{audio1}, {audio2}, {}, {}]
+      checkCount();
+      catalogAddBtn.addEventListener('click', () => {
+            [...tracksCard].forEach((track) => {            // преваращаем из html коллеции в массив
+                  track.style.display = '';                 // отображаем картчоку
+                  catalogAddBtn.remove();               // удаляем кнопку "Увидеть все"
+            });
+      });
+
+
+      prevBtn.addEventListener('click', playMusic);
+
+      nextBtn.addEventListener('click', playMusic);
+
 };
 
 

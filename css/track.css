@@ -78,7 +78,6 @@
       opacity: 1;
       /* при нажати на кнпоку плей, она scale(1.3) увеличивает иконку: */
       transform: translate(-50%, -50%) rotateY(0deg) scale(1.3);
-
 }
 
 
@@ -90,6 +89,17 @@
       /* аниммируем  свойсво background-color: */
       transition-property: background-color;
 }
+
+
+
+.track--pause .track__img-wrap::after {
+      background-image: url('../img/play.svg');
+      transform: translate(-50%, -50%) rotateY(0deg);
+      opacity: 1;
+      /* аниммируем  свойсво background-color: */
+      transition-property: background-color;
+}
+
 
 
 .track--active:hover .track__img-wrap::after {
@@ -121,12 +131,15 @@
 
 }
 
+
+
 .track__title {
       margin-bottom: 6px;
       font-weight: 600;
       font-size: 16px;
       line-height: 120%;
 }
+
 
 .track__artist {
       font-weight: 300;

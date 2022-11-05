@@ -216,13 +216,13 @@
                         </div>
                   </a> -->
 
-                  <button class="catalog__btn-add">
+                  <!-- <button class="catalog__btn-add">
                         <span>Увидеть все</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                               xmlns="http://www.w3.org/2000/svg">
                               <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z" />
                         </svg>
-                  </button>
+                  </button> -->
             </div>
       </section>
 
@@ -242,16 +242,16 @@
                         <button class="player__icon player__icon--stop player__controller-stop"></button>
                         <button class="player__icon player__icon--prev player__controller-prev"></button>
                         <button class="player__icon player__icon--pause player__controller-pause"></button>
-                        <button class="player__icon player__icon--right player__controller-right"></button>
+                        <button class="player__icon player__icon--right player__controller-next"></button>
                         <button class="player__icon player__icon--like player__controller-like"></button>
                   </div>
 
 
                   <div class="player__progress-wrap">
                         <div class="player__progress">
-                              <input class="player__progress-input" type="range" min="0" max="100" value="0">
                               <!-- слайдер-->
-                              <!-- value="0" нач значение уровень гда находится белая штучка-->
+                              <!-- value="0" нач значение уровень гда находится белая штучка, max="1000" то есть 1000 деленеий будет-->
+                              <input class="player__progress-input" type="range" min="0" max="1000" value="0">
                         </div>
 
                         <p class="player__time">

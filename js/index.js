@@ -99,8 +99,8 @@ const prevBtn = document.querySelector('.player__controller-prev');
 const nextBtn = document.querySelector('.player__controller-next');
 const liketBtn = document.querySelector('.player__controller-like');
 const mutetBtn = document.querySelector('player__controller-mute');
-
-
+const playerProgressInput = player.querySelector('.player__progress-input');              // движок в плеере
+const timePassed = player.querySelector('.player__time-passed');
 
 
 
@@ -142,26 +142,36 @@ const pausePlayer = () => {
 const playMusic = (evt) => {        // event(это объект события) возникате во время наступления любого события
       // console.dir(evt.currentTarget);                          // выведет элемент на котрый нажали ввиже объекта
       evt.preventDefault();                                       // убираем  повдеение ссылки по умлчаию(перагрука станциы)
-      const trackActive = evt.currentTarget;                      // вернет тто элемен на котрый нажали
+
+      const trackActive = evt.currentTarget;                      // вернет тот элемент на котрый нажали, у evt есть свойство currentTarget
       if (trackActive.classList.contains('track--active')) {      // если трек активный
             pausePlayer();                                        // меняем  нак артоке иконку пазуы на иконку плея
             return;                                               // выход из функции, дальнейшие дейсвтия не будут выполянться
       }
 
-      const id = trackActive.dataset.idTrack;
+
+      let i = 0;
+      const id = trackActive.dataset.idTrack;                     // id активного трека
 
       const track = dataMusic.find((item, index) => {
-
-            item.id === id
+            i = index;                                            // i - номер активного трека
+            return item.id === id;                                // find() вернет  первый элемент массива котрый подходит под усллвие
       });
-      console.log('track ', track);
 
-      audio.src = track.mp3;                      // elem.dataset.track  берем значение дата-атрибута data-track
-      audio.play();                                               // прогиграть трек, у адудио еть метод play()
+      //console.log('track ', track);                             //  получили актвный трек
+
+      audio.src = track.mp3;                                      // elem.dataset.track  берем значение дата-атрибута data-track
+      audio.play();                                               // запускем активнй трек, у адудио еть метод play()
       player.classList.add('player--active');                        // плеер появится
       pauseBtn.classList.remove('player__icon--play');            // бдет иконка треугольничка(плей)
 
-      for (let i = 0; i < tracksCard.length; i++) {
+      const prevTrack = i === 0 ? dataMusic.length - 1 : i - 1;
+      const nextTrack = 1 === dataMusic.length ? 0 : i + 1;
+      prevBtn.dataset.idTrack = dataMusic[prevTrack].id;                // добавляем кнпоке дата-атрибут data-id-track
+      nextBtn.dataset.idTrack = dataMusic[nextTrack].id;
+
+
+      for (let i = 0; i < tracksCard.length; i++) {         // у всех картчоек убираем активность 
             tracksCard[i].classList.remove('track--active');
       }
       trackActive.classList.add('track--active');
@@ -184,8 +194,9 @@ pauseBtn.addEventListener('click', pausePlayer);  // обрботчик кноп
 
 
 // обрабокт кнопки Пауза в плеере:
-stopBtn.addEventListener('click', () => {
+stopBtn.addEventListener('click', (evt) => {
       //     player дожлен уехать и удалить из src трек
+      audio.src = '';
       player.classList.remove('player--active');
       audio.pause();
 });
@@ -233,7 +244,7 @@ const renderCatalog = (dataList) => {                  //  dataList это [ {id
 
 
 
-// чтобы скрывались пустые ряды при уменьшении экрана:
+// чтобы скрывались пустые ряды карточек  при уменьшении экрана:
 const checkCount = (i = 1) => {
 
       if (catalogContaier.clientHeight > tracksCard[0].clientHeight * 3) {          // если экартчоек ольше чем 2 ряда
@@ -243,12 +254,27 @@ const checkCount = (i = 1) => {
       else if (i !== 1) {          // если не все картчоки отображены
             catalogContaier.append(catalogAddBtn);
       }
-
 };
 
 
 
-const init = () => {                                  // фккнция инициализатор, отсюда все начинается
+// когда аудио играет, время проигрывания меняется:
+const updateTime = () => {
+
+      const duration = audio.duration;                            // длительность аудио
+      const currentTime = audio.currentTime;                      // текущее врнемя проигрывания
+      playerProgressInput.value = audio.currentTime;
+      const progress = (currentTime / duration) * playerProgressInput.max;
+      console.log('progress: ', progress);
+      playerProgressInput.value = progress ? progress : 0;              // чтобы при проигрывании менялось значение на прогрессбаре
+
+      const minutesPassed = Math.floor(currentTime / 60) || 0;
+      timePassed.textContent = `${minutesPassed}:${playerProgressInput.value === 60 ? minutesPassed = 1 : 0}`;
+};
+
+
+// фккнция инициализатор, отсюда все начинается:
+const init = () => {
       renderCatalog(dataMusic);                       // отрисвока верстки  всех карточек , dataMusic = [{audio1}, {audio2}, {}, {}]
       checkCount();
       catalogAddBtn.addEventListener('click', () => {
@@ -260,9 +286,15 @@ const init = () => {                                  // фккнция иниц
 
 
       prevBtn.addEventListener('click', playMusic);
-
       nextBtn.addEventListener('click', playMusic);
+      audio.addEventListener('timeupdate', updateTime);
 
+      // когда аудио играте у него обновляется время, срабатывает событие timeupdate:
+      playerProgressInput.addEventListener('change', () => {                  //  когда жмем на прогресс бар плеера, у него сработает событие change
+            const progress = playerProgressInput.value;
+            audio.currentTime = (progress / playerProgressInput.max) * audio.duration;
+
+      });
 };
 
 

@@ -1,10 +1,10 @@
 .player {
       /* при скролле станицы, плеер будет на месте: */
       position: fixed;
-      /* чтобы плеер растягивалася на всю страницунадо  left:0  right:0 */
+      /* чтобы плеер растягивалася на всю страницу надо  left:0  right:0 */
       left: 0;
       right: 0;
-      /* чтоыб скрыть этот элемент: */
+      /* чтоыб скрыть плеер: */
       bottom: -100%;
       max-width: 1228px;
       padding: 24px;
@@ -15,7 +15,6 @@
       background-color: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(6px);
       border-radius: 20px;
-
 }
 
 
@@ -37,11 +36,6 @@
 
 .player__track-info {}
 
-.track-info {}
-
-.track-info__title {}
-
-.track-info__artist {}
 
 
 .player__controller {
@@ -56,11 +50,15 @@
       /* рамзеры иконок: */
       width: 24px;
       height: 24px;
-
-
       background-position: center;
       background-repeat: no-repeat;
 
+}
+
+
+.player__icon:hover {
+      color: #000;
+      opacity: 0.8;
 }
 
 
@@ -75,12 +73,13 @@
 
 
 .player__icon--pause {
+      /* в  JS будем этот класс удалять/добавлять */
       background-image: url('../img/pause.svg');
 }
 
 
 .player__icon--play {
-      /* в  JS будем этот класс добавлять */
+      /* в  JS будем этот класс удалять/добавлять */
       background-image: url('../img/play.svg');
 }
 
@@ -100,7 +99,6 @@
       align-items: center;
       gap: 16px;
       padding-right: 8px;
-
 }
 
 
@@ -195,7 +193,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-
 }
 
 
@@ -206,7 +203,6 @@
       background-image: url('../img/volume.svg');
       background-position: center contain;
       background-repeat: no-repeat;
-
 }
 
 
@@ -219,7 +215,7 @@
       background-color: transparent;
       /* исчезнет поле: */
       appearance: none;
-      /* чтобы сработало appearance: none и в сафари: */
+      /* чтобы сработало свойство appearance: none и в сафари: */
       -webkit-appearance: none;
       /* в опера: */
       -o-appearance: none;
@@ -234,7 +230,7 @@
       /* кружлчек на усилителе звука */
       /* исчезнет поле: */
       appearance: none;
-      /* чтобы сработало appearance: none и в сафари: */
+      /* чтобы сработало свойство appearance: none и в сафари: */
       -webkit-appearance: none;
 
       width: 12px;
